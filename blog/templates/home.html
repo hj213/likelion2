@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>@절거운 한사랑 산악회@</h1>
+    <br>
+    <div>
+        <a href="{% url 'new'%}">write blog</a>
+    </div>
+    <br>
+    <div class="container">
+    {% for blog in blogs %}
+        <div>
+        <h3>{{blog.title}}</h3>
+        {{blog.writer}} | 
+        {{blog.summary}} <a href="{% url 'detail' blog.id %}"><button type="button" class="btn btn-secondary btn-sm">more</button></a>
+        
+        </div>
+        <br>
+    {%endfor%}
+
+{% endblock %}
